@@ -243,6 +243,7 @@ namespace unvell.Common
 		}
 #endregion // Pen
 
+#if WINFORM || WPF
 #region Font
 
 		private Dictionary<string, List<WFFont>> fonts = new Dictionary<string, List<WFFont>>();
@@ -429,6 +430,7 @@ namespace unvell.Common
 #endif // WPF
 
 #endregion // Font
+#endif // WINFORM || WPF
 
 #region Image
 #if WINFORM && IMAGE_POOL
