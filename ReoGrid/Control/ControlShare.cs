@@ -54,6 +54,12 @@ using RGPointF = CoreGraphics.CGPoint;
 using IntOrDouble = System.Double;
 using ReoGridControl = unvell.ReoGrid.ReoGridView;
 
+#elif AVALONIA
+using RGFloat = System.Double;
+using RGPoint = Avalonia.Point;
+using RGPointF = Avalonia.Point;
+using IntOrDouble = System.Double;
+
 #endif // WPF
 
 #if WINFORM
@@ -62,6 +68,8 @@ using Cursor = System.Windows.Forms.Cursor;
 #elif WPF
 using Cursor = System.Windows.Input.Cursor;
 //using Cursors = System.Windows.Input.Cursors;
+#elif AVALONIA
+using Cursor = Avalonia.Input.Cursor;
 #endif // WPF
 
 using unvell.ReoGrid.Main;
@@ -70,7 +78,7 @@ using unvell.ReoGrid.Rendering;
 namespace unvell.ReoGrid
 {
 
-#if WINFORM || WPF
+#if WINFORM || WPF || AVALONIA
 	partial class ReoGridControl
 #elif ANDROID || iOS
 	partial class ReoGridView

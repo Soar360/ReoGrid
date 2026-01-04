@@ -643,7 +643,7 @@ namespace unvell.ReoGrid
 
 			if ((flags & (/*PlainStyleFlag.AlignAll  // may don't need this  |*/
 				PlainStyleFlag.TextWrap |
-#if WINFORM || WPF || iOS
+#if WINFORM || WPF || iOS || AVALONIA
 				PlainStyleFlag.FontAll
 #elif ANDROID
 				PlainStyleFlag.FontName | PlainStyleFlag.FontStyleAll

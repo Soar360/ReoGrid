@@ -1,0 +1,128 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net6.0</TargetFrameworks>
+    <OutputType>Library</OutputType>
+    <RootNamespace>unvell.ReoGrid</RootNamespace>
+    <AssemblyName>unvell.ReoGrid.Avalonia</AssemblyName>
+    <Nullable>enable</Nullable>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Platform>Any CPU</Platform>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Configurations>Debug;Release;Pack</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>Jingwood</Authors>
+    <Company>UNVELL Inc.</Company>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://reogrid.net</PackageProjectUrl>
+    <PackageIcon>icon.png</PackageIcon>
+    <RepositoryUrl>https://github.com/unvell/ReoGrid/</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <VersionPrefix>3.3.1</VersionPrefix>
+    <VersionSuffix></VersionSuffix>
+    <PackageId>unvell.ReoGrid.Avalonia.dll</PackageId>
+    <Description>Powerful and lightweight open source .NET spreadsheet component for Avalonia UI. Compatible with Excel 2007 format or later. Simple APIs to open/edit/save/print an Excel spreadsheet in Avalonia applications.</Description>
+    <SignAssembly>true</SignAssembly>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <Copyright>2012-2025 (c) Jingwood, UNVELL Inc., all rights reserved.</Copyright>
+    <PackageTags>spreadsheet excel drawing grid workbook worksheet chart data formula script macro outline print avalonia</PackageTags>
+    <PackageReleaseNotes>https://github.com/unvell/ReoGrid/releases/tag/v3.3.1</PackageReleaseNotes>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DefineConstants>TRACE;DEBUG;AVALONIA;ALWAYS_CELL_CLIP;FORMULA;LANG_JP;OUTLINE;DRAWING;COMMENT;PRINT;RICHTEXT;</DefineConstants>
+    <LangVersion>default</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DefineConstants>TRACE;AVALONIA;ALWAYS_CELL_CLIP;FORMULA;LANG_JP;OUTLINE;DRAWING;COMMENT;PRINT;RICHTEXT;</DefineConstants>
+    <DocumentationFile>bin\Release\unvell.ReoGrid.Avalonia.XML</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Pack|AnyCPU'">
+    <DefineConstants>TRACE;AVALONIA;ALWAYS_CELL_CLIP;FORMULA;LANG_JP;OUTLINE;DRAWING;COMMENT;PRINT;RICHTEXT;</DefineConstants>
+    <DocumentationFile></DocumentationFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Avalonia packages -->
+    <PackageReference Include="Avalonia" Version="11.0.10" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.0.10" />
+    <PackageReference Include="Avalonia.Skia" Version="11.0.10" />
+    <PackageReference Include="System.IO.Compression" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Exclude platform-specific files -->
+    <Compile Remove="WinForm\**" />
+    <Compile Remove="WPF\**" />
+    <Compile Remove="Android\**" />
+    <Compile Remove="iOS\**" />
+    <Compile Remove="Test\**" />
+    <EmbeddedResource Remove="WinForm\**" />
+    <EmbeddedResource Remove="WPF\**" />
+    <EmbeddedResource Remove="Android\**" />
+    <EmbeddedResource Remove="iOS\**" />
+    <EmbeddedResource Remove="Test\**" />
+    <!-- Temporarily exclude problematic resource file -->
+    <EmbeddedResource Remove="Properties\Resources.resx" />
+    <None Remove="WinForm\**" />
+    <None Remove="WPF\**" />
+    <None Remove="Android\**" />
+    <None Remove="iOS\**" />
+    <None Remove="Test\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\EULA_EN.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Update="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Update="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Control\ControlShare.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\cross.cur" />
+    <EmbeddedResource Include="Resources\full_col_select.cur" />
+    <EmbeddedResource Include="Resources\full_row_select.cur" />
+    <EmbeddedResource Include="Resources\grid_select.cur" />
+    <EmbeddedResource Include="Resources\pick_range.cur" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\EULA_EN.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="..\NuGet\icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+</Project>

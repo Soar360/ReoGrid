@@ -61,6 +61,15 @@ using RGPath = CoreGraphics.CGPath;
 using RGImage = CoreGraphics.CGImage;
 using RGTransform = CoreGraphics.CGAffineTransform;
 
+#elif AVALONIA
+using RGFloat = System.Double;
+using RGPen = Avalonia.Media.Pen;
+using RGBrush = Avalonia.Media.Brush;
+using RGPath = Avalonia.Media.Geometry;
+using RGImage = Avalonia.Media.Imaging.Bitmap;
+using PlatformGraphics = Avalonia.Media.DrawingContext;
+using RGTransform = Avalonia.Matrix;
+
 #endif // WPF
 
 using unvell.ReoGrid.Graphics;

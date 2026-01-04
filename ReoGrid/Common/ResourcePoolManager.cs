@@ -17,7 +17,7 @@
  * 
  ****************************************************************************/
 
-#if WINFORM || WPF
+#if WINFORM || WPF || AVALONIA
  
 using System;
 using System.Collections.Generic;
@@ -51,6 +51,16 @@ using RGBrushes = System.Windows.Media.Brushes;
 using RGDashStyle = System.Windows.Media.DashStyle;
 using RGDashStyles = System.Windows.Media.DashStyles;
 
+#elif AVALONIA
+
+using RGFloat = System.Double;
+
+using RGPen = Avalonia.Media.Pen;
+using RGSolidBrush = Avalonia.Media.SolidColorBrush;
+using RGBrushes = Avalonia.Media.Brushes;
+using RGDashStyle = Avalonia.Media.DashStyle;
+using RGDashStyles = Avalonia.Media.DashStyle;
+
 #endif // WPF
 
 using unvell.ReoGrid.Graphics;
@@ -68,7 +78,7 @@ namespace unvell.Common
 		}
 
 #region Brush
-#if WINFORM || WPF
+#if WINFORM || WPF || AVALONIA
 		private Dictionary<SolidColor, RGSolidBrush> cachedBrushes = new Dictionary<SolidColor, RGSolidBrush>();
 
 		public RGSolidBrush GetBrush(SolidColor color)
@@ -95,7 +105,7 @@ namespace unvell.Common
 				}
 			}
 		}
-#endif // WINFORM || WPF
+#endif // WINFORM || WPF || AVALONIA
 
 #if WINFORM
 		private Dictionary<HatchStyleBrushInfo, HatchBrush> hatchBrushes = new Dictionary<HatchStyleBrushInfo, HatchBrush>();
@@ -562,6 +572,12 @@ namespace unvell.Common
 			{
 				list.Value.Clear();
 			}
+#elif AVALONIA
+			// Avalonia resources are managed by GC
+			foreach (var list in typefaces)
+			{
+				list.Value.Clear();
+			}
 #endif // WPF
 
 			cachedBrushes.Clear();
@@ -582,4 +598,4 @@ namespace unvell.Common
 	}
 }
 
-#endif // WINFORM || WPF
+#endif // WINFORM || WPF || AVALONIA
