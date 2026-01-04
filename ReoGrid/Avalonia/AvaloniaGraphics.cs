@@ -23,6 +23,7 @@ using System.Collections.Generic;
 using Avalonia;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
+using unvell.Common;
 using unvell.ReoGrid.Graphics;
 using unvell.ReoGrid.Drawing.Text;
 using Point = unvell.ReoGrid.Graphics.Point;

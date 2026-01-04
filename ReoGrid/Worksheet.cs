@@ -50,7 +50,7 @@ using CellArray = unvell.ReoGrid.Data.ReoGridCellArray;
 
 #if WINFORM || ANDROID
 using RGFloat = System.Single;
-#elif WPF || iOS
+#elif WPF || iOS || AVALONIA
 using RGFloat = System.Double;
 #endif // WINFORM & WPF
 
