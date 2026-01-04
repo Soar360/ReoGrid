@@ -29,7 +29,7 @@ using RGPen = System.Drawing.Pen;
 using RGPenColor = System.Drawing.Color;
 using RGDashStyles = System.Drawing.Drawing2D.DashStyle;
 using PlatformGraphics = System.Drawing.Graphics;
-#elif WPF
+#elif WPF || AVALONIA
 using RGPointF = System.Windows.Point;
 using RGFloat = System.Double;
 using RGPen = System.Windows.Media.Pen;

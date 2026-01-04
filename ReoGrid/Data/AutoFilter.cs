@@ -22,7 +22,7 @@ using System.Collections.Generic;
 #if WINFORM || ANDROID
 using RGFloat = System.Single;
 using RGPoint = unvell.ReoGrid.Graphics.Point;
-#elif WPF
+#elif WPF || AVALONIA
 using RGFloat = System.Double;
 using RGPoint = unvell.ReoGrid.Graphics.Point;
 using System.Windows.Controls;
@@ -352,7 +352,7 @@ namespace unvell.ReoGrid.Data
 			/// Get or set the context menu strip of column filter.
 			/// </summary>
 			public System.Windows.Forms.ContextMenuStrip ContextMenuStrip { get; set; }
-#elif WPF
+#elif WPF || AVALONIA
       /// <summary>
       /// Get or set the context menu of column filter.
       /// </summary>
@@ -588,7 +588,7 @@ namespace unvell.ReoGrid.Data
 			{
 #if WINFORM
 				unvell.ReoGrid.WinForm.ColumnFilterContextMenu.ShowFilterPanel(headerBody, (System.Drawing.Point)point);
-#elif WPF
+#elif WPF || AVALONIA
         unvell.ReoGrid.WPF.ColumnFilterContextMenu.ShowFilterPanel(headerBody, point);
 #endif // WPF
         return true;
@@ -634,7 +634,7 @@ namespace unvell.ReoGrid.Data
 					{
 						body.ContextMenuStrip.Dispose();
 					}
-#elif WPF
+#elif WPF || AVALONIA
 						// todo
 #endif
 

@@ -23,7 +23,7 @@ using System.Diagnostics;
 using RGIntDouble = System.Int32;
 using RGFloat = System.Single;
 
-#elif WPF
+#elif WPF || AVALONIA
 using RGFloat = System.Double;
 using RGIntDouble = System.Double;
 
@@ -895,8 +895,7 @@ namespace unvell.ReoGrid
 					if (size.Width < cellWidth - 1) size.Width = (float)(Math.Round(cellWidth - 1));
 				}
 
-#elif WPF
-
+#elif WPF || AVALONIA
 			if (cell.InnerStyle.TextWrapMode != TextWrapMode.NoWrap)
 			{
 				cell.formattedText.MaxTextWidth = cellWidth;

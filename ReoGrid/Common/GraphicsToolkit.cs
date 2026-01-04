@@ -27,7 +27,7 @@ using RGBrushes = System.Drawing.Brushes;
 using PlatformGraphics = System.Drawing.Graphics;
 using WFRect = System.Drawing.Rectangle;
 
-#elif WPF
+#elif WPF || AVALONIA
 using RGPen = System.Windows.Media.Pen;
 using RGBrushes = System.Windows.Media.Brushes;
 using PlatformGraphics = System.Windows.Media.DrawingContext;
@@ -43,7 +43,7 @@ using RGPen = CoreGraphics.CGContext;
 
 #if WINFORM || ANDROID
 using RGFloat = System.Single;
-#elif WPF
+#elif WPF || AVALONIA
 using RGFloat = System.Double;
 #elif iOS
 using RGFloat = System.Double;

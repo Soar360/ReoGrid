@@ -28,7 +28,7 @@ using System.Diagnostics;
 #if WINFORM || ANDROID
 using RGFloat = System.Single;
 using RGIntDouble = System.Int32;
-#elif WPF || iOS
+#elif WPF || iOS || AVALONIA
 using RGFloat = System.Double;
 using RGIntDouble = System.Double;
 #endif
@@ -786,7 +786,7 @@ namespace unvell.ReoGrid.Views
 #if WINFORM || ANDROID
 			this.worksheet.controlAdapter.ScrollBarHorizontalLargeChange = this.scrollHorLarge = (int)Math.Round(this.view.Width);
 			this.worksheet.controlAdapter.ScrollBarVerticalLargeChange = this.scrollVerLarge = (int)Math.Round(this.view.Height);
-#elif WPF
+#elif WPF || AVALONIA
 			this.worksheet.controlAdapter.ScrollBarHorizontalLargeChange = this.scrollHorLarge = this.view.Width;
 			this.worksheet.controlAdapter.ScrollBarVerticalLargeChange = this.scrollVerLarge = this.view.Height;
 #endif // WPF
@@ -1015,7 +1015,7 @@ namespace unvell.ReoGrid.Views
 //#if WINFORM || ANDROID
 //			int offHor = maxHorizontal - this.scrollHorMax;
 //			int offVer = maxVertical - this.scrollVerMax;
-//#elif WPF
+//#elif WPF || AVALONIA
 //			int offHor = (int)Math.Round(maxHorizontal - this.scrollHorMax);
 //			int offVer = (int)Math.Round(maxVertical - this.scrollVerMax);
 //#elif ANDROID || iOS
