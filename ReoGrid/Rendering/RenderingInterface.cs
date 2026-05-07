@@ -45,6 +45,12 @@ using RGFloat = System.Double;
 using RGPen = CoreGraphics.CGContext;
 using RGBrush = CoreGraphics.CGContext;
 
+#elif AVALONIA
+using RGFloat = System.Double;
+using RGPen = Avalonia.Media.Pen;
+using RGBrush = Avalonia.Media.Brush;
+using RGFont = Avalonia.Media.Typeface;
+
 #endif // ANDROID
 
 using unvell.ReoGrid.Drawing.Text;

@@ -25,7 +25,7 @@ using System.Diagnostics;
 using RGFloat = System.Single;
 using RGIntDouble = System.Int32;
 
-#elif WPF
+#elif WPF || AVALONIA
 using RGFloat = System.Double;
 using RGIntDouble = System.Double;
 
@@ -200,7 +200,7 @@ namespace unvell.ReoGrid.Views
 				dc.Graphics.PlatformGraphics.DrawString(msg,
 						System.Drawing.SystemFonts.DefaultFont, System.Drawing.Brushes.Blue, this.Left + Width / 2, Top + Height / 2);
 			}
-#elif WPF
+#elif WPF || AVALONIA
 			var msg = string.Format("VR {0},{1}-{2},{3} VS X{4},Y{5}\nSD {6}", this.visibleRegion.startRow,
 				this.visibleRegion.startCol, this.visibleRegion.endRow, this.visibleRegion.endCol, this.ViewLeft, this.ViewTop,
 				this.ScrollableDirections.ToString());

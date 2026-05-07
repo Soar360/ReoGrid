@@ -54,6 +54,12 @@ using RGPointF = CoreGraphics.CGPoint;
 using IntOrDouble = System.Double;
 using ReoGridControl = unvell.ReoGrid.ReoGridView;
 
+#elif AVALONIA
+using RGFloat = System.Double;
+using RGPoint = Avalonia.Point;
+using RGPointF = Avalonia.Point;
+using IntOrDouble = System.Double;
+
 #endif // WPF
 
 #if WINFORM
@@ -62,6 +68,8 @@ using Cursor = System.Windows.Forms.Cursor;
 #elif WPF
 using Cursor = System.Windows.Input.Cursor;
 //using Cursors = System.Windows.Input.Cursors;
+#elif AVALONIA
+using Cursor = Avalonia.Input.Cursor;
 #endif // WPF
 
 using unvell.ReoGrid.Main;
@@ -70,7 +78,7 @@ using unvell.ReoGrid.Rendering;
 namespace unvell.ReoGrid
 {
 
-#if WINFORM || WPF
+#if WINFORM || WPF || AVALONIA
 	partial class ReoGridControl
 #elif ANDROID || iOS
 	partial class ReoGridView
@@ -89,7 +97,7 @@ namespace unvell.ReoGrid
 
 		private void InitControl()
 		{
-#if WINFORM || WPF
+#if WINFORM || WPF || AVALONIA
 			// initialize cursors
 			// normal grid selector
 			this.builtInCellsSelectionCursor = LoadCursorFromResource(unvell.ReoGrid.Properties.Resources.grid_select);
@@ -105,7 +113,7 @@ namespace unvell.ReoGrid
 			this.builtInEntireSheetSelectCursor = this.builtInCellsSelectionCursor;
 
 			this.builtInCrossCursor = LoadCursorFromResource(unvell.ReoGrid.Properties.Resources.cross);
-#endif // WINFORM || WPF
+#endif // WINFORM || WPF || AVALONIA
 
 			this.ControlStyle = ControlAppearanceStyle.CreateDefaultControlStyle();
 		}
@@ -1155,7 +1163,7 @@ namespace unvell.ReoGrid
 		#endregion // Internal Exceptions
 
 		#region Cursors
-#if WINFORM || WPF
+#if WINFORM || WPF || AVALONIA
 		private Cursor builtInCellsSelectionCursor = null;
 		private Cursor builtInFullColSelectCursor = null;
 		private Cursor builtInFullRowSelectCursor = null;
@@ -1205,11 +1213,11 @@ namespace unvell.ReoGrid
 				return new Cursor(ms);
 			}
 		}
-#endif // WINFORM || WPF
+#endif // WINFORM || WPF || AVALONIA
 		#endregion Cursors
 
 		#region Pick Range
-#if WINFORM || WPF
+#if WINFORM || WPF || AVALONIA
 		/// <summary>
 		/// Start to pick a range from current worksheet.
 		/// </summary>
@@ -1252,7 +1260,7 @@ namespace unvell.ReoGrid
 
 			this.internalCurrentCursor = (this.customCellsSelectionCursor ?? this.builtInCellsSelectionCursor);
 		}
-#endif // WINFORM || WPF
+#endif // WINFORM || WPF || AVALONIA
 		#endregion // Pick Range
 
 		#region Appearance
@@ -1338,7 +1346,7 @@ namespace unvell.ReoGrid
 		}
 		#endregion // Mouse
 
-#if WINFORM || WPF
+#if WINFORM || WPF || AVALONIA
 #if WINFORM
 		/// <summary>
 		/// Overrides mouse-leave event
@@ -1346,7 +1354,7 @@ namespace unvell.ReoGrid
 		/// <param name="e">Argument of mouse-leave</param>
 		protected override void OnMouseLeave(EventArgs e)
 		{
-#elif WPF
+#elif WPF || AVALONIA
 		protected override void OnMouseLeave(System.Windows.Input.MouseEventArgs e)
 		{
 #endif // WPF
@@ -1358,7 +1366,7 @@ namespace unvell.ReoGrid
 				this.currentWorksheet.HoverPos = CellPosition.Empty;
 			}
 		}
-#endif // WINFORM || WPF
+#endif // WINFORM || WPF || AVALONIA
 
 #if PRINT
 		/// <summary>
